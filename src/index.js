@@ -32,7 +32,8 @@ ReactDOM.render(
     <Provider store={store}>
     	<BrowserRouter>
         	<div className="content">
-                <Link to="/postadd"><button className="header_right_center fab_btn">Create a New Post</button></Link>
+                <Link to="/"><button className="home-page-link">Home Page</button></Link>
+                <Link to="/postadd"><button className="create-post">Create a New Post</button></Link>
                 <Route exact path="/" component={App}/>
                 <Route exact path="/:category" component={Posts}/>
                 <Route exact path="/postadd" component={PostAdd}/>

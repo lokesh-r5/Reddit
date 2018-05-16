@@ -7,7 +7,7 @@ import {loadPosts} from '../actions/posts'
 import {loadCommentsForPost, displayCommentForm, hideCommentForm, commentAdded, commentUpdated} from '../actions/comments'
 
 import PostDetail from './PostDetail'
-import Comment from './comment'
+import Comment from './Comment'
 import CommentForm from './CommentForm'
 
 import * as API from '../util/api'
@@ -68,13 +68,14 @@ class PostView extends Component {
 
     const post = posts[postId]
 
-    const postDeleted = (post && post.deleted)? <div>Post doesnt exists. checkout other <Link to={"/"}>posts</Link>.</div> : ''
     const commentsForPost = Object.values(comments).filter(comment => comment.parentId === postId && !comment.deleted)
 
     const commentsCount = (commentsForPost && commentsForPost.length)? <span>&#40;{commentsForPost.length}&#41;</span> : ''
 
     return (
       <div>
+        {!post && (<div>Post doesnt exists. checkout other <Link to={"/"}>posts</Link>.</div>)}
+        {post && post.deleted && (<div>Post doesnt exists. checkout other <Link to={"/"}>posts</Link>.</div>)}
         {post && !post.deleted && (<div><PostDetail post={post} showReadMore={false} showEdit={true}/>
         <section>
           <div className="comments-section-title">Comments {commentsCount} <div className="pure-button comment-add" onClick={this.openCommentModal}><span className="icon add"></span><span>Add Comment</span></div></div>
@@ -83,7 +84,6 @@ class PostView extends Component {
             {commentModal && commentModal.isOpen && <CommentForm submitBtnText={commentModal.comment? 'Update' : 'Add'} onSubmit={this.onAddComment} comment={commentModal.comment} post={post} onClose={this.closeCommentModal}/>}
           </ReactModal>
         </section></div>)}
-        {postDeleted}
       </div>
     );
   }
