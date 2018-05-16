@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import * as posts from '../actions/posts'
 import * as API from '../util/api'
@@ -31,7 +31,7 @@ class PostEdit extends Component {
   }
 
   render() {
-    const {posts, match, cats} = this.props
+    const { posts, match, cats } = this.props
     const postId = (match && match.params && match.params.postId) ? match.params.postId : null
     const post = posts[postId]
 
@@ -39,8 +39,8 @@ class PostEdit extends Component {
   }
 }
 
-function mapStateToProps({posts, cats}) {
-  return {posts, cats}
+function mapStateToProps({ posts, cats }) {
+  return { posts, cats }
 }
 
 export default connect(mapStateToProps, posts)(PostEdit)

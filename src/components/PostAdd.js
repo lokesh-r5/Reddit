@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import * as posts from '../actions/posts'
 import * as API from '../util/api'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import PostEditForm from './PostEditForm'
 
 class PostAdd extends Component {
@@ -12,7 +12,7 @@ class PostAdd extends Component {
   }
 
   onSubmit({title, body, author, category}) {
-    const {postAdded, history: {push} } = this.props
+    const { postAdded, history: { push } } = this.props
 
     if (title && body && author && category) {
       API.addPost(title, body, author, category).then((post) => {
@@ -22,17 +22,17 @@ class PostAdd extends Component {
     }
   }
   render() {
-    const {cats} = this.props
+    const { cats } = this.props
     return (
       <div>
-        <PostEditForm cats={cats} submitBtnText='Add' onSubmit={this.onSubmit}/>
+        <PostEditForm cats={ cats } submitBtnText='Add' onSubmit={ this.onSubmit }/>
       </div>
     );
   }
 }
 
-function mapStateToProps({cats}) {
-  return {cats}
+function mapStateToProps({ cats }) {
+  return { cats }
 }
 
 export default connect(mapStateToProps, posts)(PostAdd)

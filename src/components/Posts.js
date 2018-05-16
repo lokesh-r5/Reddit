@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
-import {loadPosts, sortPosts} from '../actions/posts'
+import { loadPosts, sortPosts } from '../actions/posts'
 
 import PostDetail from './PostDetail'
 
@@ -10,14 +10,14 @@ import PostDetail from './PostDetail'
 class Posts extends Component {
 
   componentDidMount() {
-    const {loadPosts, posts} = this.props
+    const { loadPosts, posts } = this.props
 
     if (!posts || !posts.length) {
       loadPosts()
     }
   }
   render() {
-    const {posts, match, sortPostsBy} = this.props
+    const { posts, match, sortPostsBy } = this.props
     const activePosts = Object.values(posts).filter(post => !post.deleted);
     const sortingParameter = sortPostsBy || "Date"
     
@@ -48,8 +48,8 @@ class Posts extends Component {
   }
 }
 
-function mapStateToProps({loadPosts, posts, sortPostsBy}) {
-  return {loadPosts, posts, sortPostsBy}
+function mapStateToProps({ loadPosts, posts, sortPostsBy }) {
+  return { loadPosts, posts, sortPostsBy }
 }
 
-export default connect(mapStateToProps, {loadPosts, sortPosts})(Posts)
+export default connect(mapStateToProps, { loadPosts, sortPosts })(Posts)

@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link} from 'react-router-dom'
 
-import {loadCats} from '../actions/cats'
+import { loadCats } from '../actions/cats'
 
 
 
 class Cats extends Component {
 
 	componentDidMount() {
-		const {loadCats} = this.props
+		const { loadCats } = this.props
 		loadCats()
 	}
   render() {
-    const {cats} = this.props
+    const { cats } = this.props
     
     return (
         <div className="categories">
@@ -33,8 +33,8 @@ class Cats extends Component {
   }
 }
 
-function mapStateToProps({cats}) {
-  return {cats}
+function mapStateToProps({ cats }) {
+  return { cats }
 }
 
-export default connect(mapStateToProps, {loadCats})(Cats)
+export default connect(mapStateToProps, { loadCats })(Cats)

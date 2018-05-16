@@ -2,7 +2,7 @@ import * as ACTIONS from '../actions/action-keys'
 
 
 export function comments(state = {}, action) {
-  const {comments, comment} = action
+  const { comments, comment } = action
   switch (action.type) {
     case ACTIONS.LOAD_COMMENTS:
       if(comments) {
@@ -28,7 +28,7 @@ export function comments(state = {}, action) {
 }
 
 export function commentModal(state = {}, action) {
-  const {comment} = action
+  const { comment } = action
   switch (action.type) {
     case ACTIONS.DISPLAY_COMMENT_FORM:
       return {

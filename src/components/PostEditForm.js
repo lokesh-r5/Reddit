@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class PostEditForm extends Component {
 
@@ -14,7 +14,7 @@ class PostEditForm extends Component {
 
   onFormSubmit(event) {
     event.preventDefault()
-    const {onSubmit} = this.props
+    const { onSubmit } = this.props
 
     if (onSubmit && this.title.value && this.body.value && this.author.value && this.selectedCategory) {
       onSubmit({title: this.title.value, body: this.body.value, author: this.author.value, category: this.selectedCategory})
@@ -22,7 +22,7 @@ class PostEditForm extends Component {
   }
 
   render() {
-    const {cats, submitBtnText, post} = this.props
+    const { cats, submitBtnText, post } = this.props
 
     const { body, author, title, category } = post || {}
 

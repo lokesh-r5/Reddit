@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Componen } from 'react'
 
 class CommentForm extends Component {
 
@@ -12,7 +12,7 @@ class CommentForm extends Component {
 
   onFormSubmit(event) {
     event.preventDefault()
-    const {onSubmit, comment} = this.props
+    const { onSubmit, comment } = this.props
 
     if (onSubmit && this.body.value && this.author.value) {
       onSubmit({body: this.body.value, author: this.author.value, id: comment && comment.id})
@@ -21,7 +21,7 @@ class CommentForm extends Component {
 
   onCancel(event) {
     event.preventDefault()
-    const {onClose} = this.props
+    const { onClose } = this.props
     if(onClose){
       onClose()
     }

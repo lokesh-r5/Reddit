@@ -1,7 +1,7 @@
 import * as API from '../util/api'
 import * as ACTIONS from './action-keys'
 
-import {loadingData} from './data'
+import { loadingData } from './data'
 
 export const loadCommentsForPost = (postId) => dispatch => {
     dispatch(loadingData(true))

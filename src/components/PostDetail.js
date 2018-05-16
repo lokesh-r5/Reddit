@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
-import {connect} from 'react-redux';
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 
-import {votePost, deletePost} from '../actions/posts'
+import { votePost, deletePost } from '../actions/posts'
 
 class PostDetail extends Component {
 
   render() {
-    const {post, votePost, deletePost} = this.props
+    const { post, votePost, deletePost } = this.props
 
     return (
       <div>
@@ -39,7 +39,7 @@ class PostDetail extends Component {
 }
 
 function mapStateToProps({posts}) {
-  return {posts}
+  return { posts }
 }
 
 function printDate(timestamp) {
@@ -47,4 +47,4 @@ function printDate(timestamp) {
   return date.toUTCString().split(" ").slice(0,4).join(" ")
 }
 
-export default connect(mapStateToProps, {votePost, deletePost})(PostDetail)
+export default connect(mapStateToProps, { votePost, deletePost })(PostDetail)

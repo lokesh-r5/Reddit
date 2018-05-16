@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import * as comments from '../actions/comments'
 
 
 class Comment extends Component {
   render() {
-    const {comment} = this.props
+    const { comment } = this.props
     return (
       <section className="comment" key={comment.id}>
         <header className="comment-header">
@@ -30,8 +30,8 @@ function printDate(timestamp) {
   return d.toUTCString().split(" ").slice(0,4).join(" ")
 }
 
-function mapStateToProps({comments}) {
-  return {comments}
+function mapStateToProps({ comments }) {
+  return { comments }
 }
 
 export default connect(mapStateToProps, comments)(Comment)
